@@ -34,6 +34,7 @@ export default class MainView extends Component {
       }
       return (
         <TouchableHighlight
+          key={color}
           underlayColor="white"
           onPress={() => this.setState({ selectedColor: color })}>
           <View style={[styles.paletteColor, style]} />
@@ -50,6 +51,7 @@ export default class MainView extends Component {
         };
         pixels.push(
           <TouchableWithoutFeedback
+            key={`x${x}y${y}`}
             onPress={() => setPixelColor(x, y, this.state.selectedColor)}>
             <View style={[styles.pixel, pixelStyle]} />
           </TouchableWithoutFeedback>
@@ -59,7 +61,6 @@ export default class MainView extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.infoBox}>
-          <Text>{width} {height}</Text>
           <Text style={styles.info}>Source:</Text>
           <Text style={styles.info}>
             8b641b23d0d39aae04b037107e69e43d240fca9c13c79f3f22218ae84c152ac9
